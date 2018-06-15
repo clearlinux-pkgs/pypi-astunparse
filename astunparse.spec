@@ -4,13 +4,14 @@
 #
 Name     : astunparse
 Version  : 1.5.0
-Release  : 3
+Release  : 4
 URL      : https://pypi.python.org/packages/1a/b7/3ba7ce33cbc8847e20ed1a4fbec2303a71b2512dec0194824e8dcaadc8de/astunparse-1.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/1a/b7/3ba7ce33cbc8847e20ed1a4fbec2303a71b2512dec0194824e8dcaadc8de/astunparse-1.5.0.tar.gz
 Summary  : An AST unparser for Python
 Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: astunparse-python3
+Requires: astunparse-license
 Requires: astunparse-python
 Requires: six
 Requires: wheel
@@ -18,7 +19,6 @@ BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : py
 BuildRequires : pytest
-BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : testtools
@@ -27,6 +27,14 @@ BuildRequires : wheel-python
 %description
 AST Unparser
         ============
+
+%package license
+Summary: license components for the astunparse package.
+Group: Default
+
+%description license
+license components for the astunparse package.
+
 
 %package python
 Summary: python components for the astunparse package.
@@ -54,7 +62,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522437231
+export SOURCE_DATE_EPOCH=1529091193
 python3 setup.py build -b py3
 
 %check
@@ -64,6 +72,8 @@ export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
 %install
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/astunparse
+cp LICENSE %{buildroot}/usr/share/doc/astunparse/LICENSE
 python3 -tt setup.py build -b py3 install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -71,6 +81,10 @@ echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/astunparse/LICENSE
 
 %files python
 %defattr(-,root,root,-)
