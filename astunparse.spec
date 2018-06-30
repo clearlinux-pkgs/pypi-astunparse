@@ -4,7 +4,7 @@
 #
 Name     : astunparse
 Version  : 1.5.0
-Release  : 9
+Release  : 10
 URL      : https://pypi.python.org/packages/1a/b7/3ba7ce33cbc8847e20ed1a4fbec2303a71b2512dec0194824e8dcaadc8de/astunparse-1.5.0.tar.gz
 Source0  : https://pypi.python.org/packages/1a/b7/3ba7ce33cbc8847e20ed1a4fbec2303a71b2512dec0194824e8dcaadc8de/astunparse-1.5.0.tar.gz
 Summary  : An AST unparser for Python
@@ -22,7 +22,6 @@ BuildRequires : pytest
 BuildRequires : python3-dev
 BuildRequires : setuptools
 BuildRequires : testtools
-BuildRequires : wheel-python
 
 %description
 AST Unparser
@@ -62,14 +61,14 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1529091193
+export SOURCE_DATE_EPOCH=1530326172
 python3 setup.py build -b py3
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test || :
+PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test || :
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/astunparse
