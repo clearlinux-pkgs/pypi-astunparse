@@ -4,7 +4,7 @@
 #
 Name     : pypi-astunparse
 Version  : 1.6.3
-Release  : 42
+Release  : 43
 URL      : https://files.pythonhosted.org/packages/f3/af/4182184d3c338792894f34a62672919db7ca008c89abee9b564dd34d8029/astunparse-1.6.3.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f3/af/4182184d3c338792894f34a62672919db7ca008c89abee9b564dd34d8029/astunparse-1.6.3.tar.gz
 Summary  : An AST unparser for Python
@@ -14,12 +14,8 @@ Requires: pypi-astunparse-license = %{version}-%{release}
 Requires: pypi-astunparse-python = %{version}-%{release}
 Requires: pypi-astunparse-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
-BuildRequires : py
 BuildRequires : pypi(six)
 BuildRequires : pypi(wheel)
-BuildRequires : pytest
-BuildRequires : testtools
-Provides: astunparse
 
 %description
 AST Unparser
@@ -63,7 +59,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1641409930
+export SOURCE_DATE_EPOCH=1641861283
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
